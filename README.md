@@ -65,14 +65,14 @@ means that the `print('end of the suite')` will need to go inside the `func` fun
 The steps for this workshop are:
 
 1. [Build an app to take a photo](./Steps/BuildAnAppToTakeAPhoto.md)
-1. [Create a Flask Web App](./Steps/CreateAFlaskWebApp.mc)
+1. [Create a Flask Web App](./Steps/CreateAFlaskWebApp.md)
 1. [Deploy the Web App to Azure](./Steps/DeployTheWebAppToTheCloud.md)
 1. [Add a Web Api to accept a photo](./Steps/AddWebApi.md)
 1. [Analyse the photo using AI](./Steps/AnalyseThePhotoUsingAI.md)
 1. [Save the face details to a database](./Steps/SaveTheResultsToADatabase.md)
 1. [Call the web Api from the app](./Steps/CallTheWebApiFromDesktop.md)
 1. [Add a web page to view the results](./Steps/ViewTheResults.md)
-1. [Clean up](./CleanUp.md)
+1. [Clean up](./Steps/CleanUp.md)
 
 ## Code
 
