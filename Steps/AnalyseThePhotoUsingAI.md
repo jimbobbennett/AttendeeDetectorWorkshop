@@ -4,7 +4,7 @@ In the [previous step](./AddWebApi.md) you added a route to this app to provide 
 
 ## Using AI to analyze images
 
-AI, or Artificial Intelligence is where computers can perform tasks normally associated with people, not computers. Computers can learn how to do something, rather than be told how to do it using explicit instructions by writing programs. For example, a computer can be trained how to recognize cats by being shown thousands of images of cats. You can then give it an image it hasn't seen before, and it can tell if there is a cat in the image. This is called Machine Learning or ML. Once taught, the computer builds a model, and this can be re-used by other computes to perform the same task.
+AI, or Artificial Intelligence is where computers can perform tasks normally associated with people, not computers. Computers can learn how to do something, rather than be told how to do it using explicit instructions by writing programs. For example, a computer can be trained how to recognize cats by being shown thousands of images of cats. You can then give it an image it hasn't seen before, and it can tell if there is a cat in the image. This is called Machine Learning or ML. Once taught, the computer builds a model, and this can be re-used by other computers to perform the same task.
 
 You can train Machine Learning models yourself, or you can use models created by others. Microsoft has a range of these pre-trained models available, called [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/?WT.mc_id=pythonworkshop-github-jabenn). These models include recognizing images, recognizing speech, or translating between different languages.
 
@@ -34,7 +34,7 @@ Before you can use the Face Api, you will need a subscription key. You can do th
 
 ### Use an existing Azure Subscription
 
-* Open the Azure Portal from [portal.azure.com](https://portal.azure.com/?WT.mc_id=pythonworkshop-github-jabenn).
+* Open the Azure Portal from [portal.azure.com](https://portal.azure.com/?WT.mc_id=pythonworkshop-github-jabenn). Log in if required.
 
 * Select *Create a resource* or select the green plus button.
 
@@ -147,7 +147,7 @@ The Face Api is available as a Python package.
 
 The overall flow of this code is:
 
-1. Create a FaceClient using the endpoint and key from the Face Api resource in Azure
+1. Create a `FaceClient` using the endpoint and key from the Face Api resource in Azure
 1. Convert the binary image data to a stream of data that the face client can process
 1. Detect faces in the image stream
 1. Loop though all the faces creating an object that contains a unique id, the detected age of that face, if that face is smiling and the detected emotion
@@ -158,9 +158,10 @@ Lets look in more detail at the actual code.
 from azure.cognitiveservices.vision.face import FaceClient
 from msrest.authentication import CognitiveServicesCredentials
 import io
+import uuid
 ```
 
-This tells the Python compiler that we want to use code in the `FaceClient` module from the `azure-cognitiveservices-vision-face` package, as well as the `CognitiveServicesCredentials` from the `msrest-authentication` package. The `msrest-authentication` package was not installed directly, but is a dependency of the `azure-cognitiveservices-vision-face` package, so it gets installed automatically. It also tells the python compiler that we want to use `io` from the Python standard libraries
+This tells the Python compiler that we want to use code in the `FaceClient` module from the `azure-cognitiveservices-vision-face` package, as well as the `CognitiveServicesCredentials` from the `msrest-authentication` package. The `msrest-authentication` package was not installed directly, but is a dependency of the `azure-cognitiveservices-vision-face` package, so it gets installed automatically. It also tells the python compiler that we want to use `io` and `uuid` from the Python standard libraries
 
 ```python
 face_api_endpoint = 'https://centralus.api.cognitive.microsoft.com'

@@ -16,7 +16,7 @@ To create a Cosmos DB database, you first create an account. Inside the account 
 
 * From the Visual Studio Code command palette, select *Cosmos DB: Create Account*
 
- ![The command palette showing the create account option](../Images/CosomsCreateAccount.png)
+  ![The command palette showing the create account option](../Images/CosomsCreateAccount.png)
 
 * Select the Azure subscription you want to use.
   
@@ -66,11 +66,11 @@ To create a Cosmos DB database, you first create an account. Inside the account 
   
   ![The command palette showing the partition key option](../Images/CosmosPartitionKey.png)
 
-* Set the initial throughput to 400.
+* Leave the initial throughput as 400.
   
   ![The command palette showing the through put option](../Images/CosmosThroughPut.png)
 
-Once created, you will be able to refresh the *COSMOS DB* panel in the *Azure* tab and see the new collection.
+Once created, you will be able to see the new collection in the *COSMOS DB* panel in the *Azure* tab.
 
 ![The new collection in the explorer](../Images/CosmosCollectionInExplorer.png)
 
@@ -128,7 +128,7 @@ There is a Cosmos DB client available as a Python package.
     AccountEndpoint=https://<Cosmos DB Account Name>.documents.azure.com:443/;AccountKey=<Your key>
     ```
   
-  * Extract the `AccountEndpoint` value. This is from **After** `AccountEndpoint=` up to but not including the semi-colon. It will be in the format `https://<Cosmos DB Account Name>.documents.azure.com:443/` where `<Cosmos DB Account Name>` is the name you used for your Cosmos DB account.
+  * Extract the `AccountEndpoint` value. This is from **After** `AccountEndpoint=` up to **but not including** the semi-colon. It will be in the format `https://<Cosmos DB Account Name>.documents.azure.com:443/` where `<Cosmos DB Account Name>` is the name you used for your Cosmos DB account.
   
   * Use this value as the value for the `cosmos_url` variable.
 

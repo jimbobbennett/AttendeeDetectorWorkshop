@@ -9,7 +9,11 @@ In this step, you will build an app in Python that will launch the camera and ta
 ## Open this folder in Visual Studio Code
 
 * Launch Visual Studio Code.
-* Select *File->Open...*
+
+* Open the newly created folder
+  * On MacOS select *File->Open...*
+  * On Windows select *File->Open Folder...*
+
 * Navigate to the new `AttendeeDetector` folder and select **Open**.
 
 You will see the empty folder appear in the *Explorer*.
@@ -51,7 +55,7 @@ This app will need the OpenCV Python package. This can be installed from [Pip](h
 
     k = cv2.waitKey(1)
     if k%256 == 32:
-        break
+      break
 
   cam.release()
   cv2.destroyAllWindows()
@@ -89,9 +93,9 @@ When the code runs, a window will appear showing the view from your camera. Pres
 The overall flow of this code is:
 
 1. Create the camera and a window
-1. Loop forever, capturing a frame from the camera and displaying it on screen
-1. Every millisecond check for a key press. If no key is pressed, or a key other than space is pressed, continue the loop capturing the next frame from the camera
-1. If the space key is pressed, break out of the loop and clean up the app before exiting
+2. Loop forever, capturing a frame from the camera and displaying it on screen
+3. Every millisecond check for a key press. If no key is pressed, or a key other than space is pressed, continue the loop capturing the next frame from the camera and display it on screen.
+4. If the space key is pressed, break out of the loop and clean up the app before exiting
 
 Lets look in more detail at the actual code.
 

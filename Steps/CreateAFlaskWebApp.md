@@ -50,7 +50,12 @@ Instead of install it using `pip` from the terminal, it should be configured ins
 This code can't be run from the terminal using the file name, instead it has to be run as a Flask app using the Flask package. There are two ways to do this:
 
 * From the Debug pane of the toolbar, drop down the *Debug configuration* box and select *Python: Flask*.
-  > If you do not see this option, then select *Add configuration* to edit the `launch.json` file. Select *Add Configuration...* and select the *Python: Flask* option. Save this file.
+  
+  > If you do not see this option, then select *Add configuration* to edit the `launch.json` file. This should create a set of launch options for Python files.
+  >
+  > If these options are not created automatically, select *Add Configuration...* and select the *Python: Flask* option. Save this file.
+  >
+  > Select *Python: Flask* from the *Debug configuration* box.
 
   Select the green *Start Debugging* button.
 
@@ -64,18 +69,20 @@ This code can't be run from the terminal using the file name, instead it has to 
 
   If you use this method you will not be able to set breakpoints and debug your code.
 
-The Web App will be run, and can be accessed from your device at [http://127.0.0.1:5000](http://127.0.0.1:5000). You will see this URL in the output window.
+The Web App will be run, and can be accessed from your device at [http://127.0.0.1:5000](http://127.0.0.1:5000). You will see this URL in the output window, and you can use **ctrl+click** to go directly to this site.
 
 * Open this URL in a web browser to see the `Hello World` message.
 
   ![A website showing Hello World](../Images/HelloWorldOnWebSite.png)
+
+* Stop the debugger once you have tested this out.
 
 ## What does this code do
 
 The overall flow of this code is:
 
 1. Create a Flask app that the Flask framework can use to know this is a Flask Web App
-1. Define a route for '/' that returns `'Hello World'`
+2. Define a route for '/' that returns `'Hello World'`
 
 Lets look in more detail at the actual code.
 
@@ -96,7 +103,7 @@ This creates a Flask Web App called whatever the file is called. `__name__` is a
 def home():
 ```
 
-This defines a function called `home`. This function is mapped to a route called `/`. In a Web App, a route is the part of the URL after the domain name, and different routes can be mapped to different web pages. `/` is usually the home page, and there can be as many other routes as needed, for example `/about` would route to an about page, `/basket` could route to a shopping basket. If your website was at `http://www.mysebsite.com` then the `/` route is the one that would be used when you point your browser to `http://www.mysebsite.com`, `/about` would be used when you went to `http://www.mysebsite.com/about` and so on.
+This defines a function called `home`. This function is mapped to a route called `/`. In a Web App, a route is the part of the URL after the domain name, and different routes can be mapped to different web pages. `/` is usually the home page, and there can be as many other routes as needed, for example `/about` would route to an about page, `/basket` could route to a shopping basket. If your website was at `http://www.mywebsite.com` then the `/` route is the one that would be used when you point your browser to `http://www.mywebsite.com`, `/about` would be used when you went to `http://www.mywebsite.com/about` and so on.
 
 ```python
 return 'Hello World'

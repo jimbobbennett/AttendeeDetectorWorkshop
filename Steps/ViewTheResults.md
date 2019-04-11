@@ -137,7 +137,7 @@ This code is part of the templating syntax. It tells the templating engine to lo
 </tr>
 ```
 
-This is also template code. For each `row` in the `results`, this code outputs an HTML table row with three cells containing the values of the `age`, `smile` and `emotion` properties of the row.
+This is also template code. For each `row` in the `results`, this code outputs an HTML table row with three cells containing the values of the `age`, `smile` and `emotion` properties of the `row`.
 
 ### The `app.py` file
 

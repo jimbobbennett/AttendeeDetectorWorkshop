@@ -6,9 +6,9 @@ In the [previous step](./CreateAFlaskWebApp.md) you created a simple Flask Web A
 
 In the last step, you ran the Web App on your local computer. This means that you can see the web page, but it is not available to anyone else. To make it available, it needs to run on a computer somewhere that is accessible over the internet. Cloud services allow you to easily deploy your Web Sites to computers running in the cloud. The Cloud service available from Microsoft is called [Azure](https://azure.microsoft.com/?WT.mc_id=pythonworkshop-github-jabenn), and this runs all around the world.
 
-Running web sites used to be a lot of work. You would need to configure a computer connected to the internet, instal software to host the web site, connect it to the internet with a domain name, configure security so hackers couldn't break in, and ensure everything is backed up incase of something breaking. For busy sites you might want to configure multiple computers to spread the load, and services to ensure one computer doesn't get overloaded handling requests. Now, thanks to services in the cloud you can just deploy your code and let the cloud provided make everything else work.
+Running web sites used to be a lot of work. You would need to configure a computer connected to the internet, install software to host the web site, connect it to the internet with a domain name, configure security so hackers couldn't break in, and ensure everything is backed up in case of something breaking. For busy sites you might want to configure multiple computers to spread the load, and services to ensure one computer doesn't get overloaded handling requests. Now, thanks to services in the cloud you can just deploy your code and let the cloud provided make everything else work.
 
-Using your Azure subscription, you will be able to deploy your code to the cloud, with Azure managing all the complexities for you using [Azure App Service](https://azure.microsoft.com/services/app-service/?WT.mc_id=pythonworkshop-github-jabenn). You configure an App Service, then send your code to it.
+Using your Azure subscription, you will be able to deploy your code to the cloud, with Azure managing all the complexities for you using [Azure App Service](https://azure.microsoft.com/services/app-service/?WT.mc_id=pythonworkshop-github-jabenn). You configure an App Service and send your code to it, and Azure handles the rest.
 
 ## Deploying to an App Service
 
@@ -43,7 +43,7 @@ You can configure an Azure App Service and deploy your code from inside Visual S
 
   ![The command palette showing the select runtime option](../Images/SelectPythonRuntime.png)
 
-* The App Service will be created You will see a progress bar on the bottom right, and this will show you once it is complete. You can monitor the progress from the *Output* window.
+* The App Service will be created You will see a progress bar on the bottom right, and this will show you once it is complete. You can monitor the progress from the *Output* window by selecting *View -> Output* and selecting *Azure App Service* from the window selector..
 
   ![The create app service progress bar](../Images/CreateWebAppProgress.png)
 

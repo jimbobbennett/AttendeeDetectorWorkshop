@@ -28,13 +28,13 @@ To complete this workshop, you will need:
 
   > You will need to restart Visual Studio Code before using this extension.
 
-* A laptop with a WebCam, or an external WebCam
+* A laptop with a Web Cam, or an external camera.
 
-This workshop works on MacOs and Windows.
+This workshop works on MacOS and Windows.
 
 ## The Attendee Detector app
 
-The attendee detector is a Python app. It uses a library called [OpenCV](https://opencv.org) which is accessible from Python to access the WebCam and take a picture. Once a picture has been taken, this app will send it to a Web Api built in Python, using a framework called [Flask](http://flask.pocoo.org) and running in the cloud. This is a special type of web site address that doesn't return a web page, but instead allows you to send and receive data.
+The attendee detector is a Python app. It uses a library called [OpenCV](https://opencv.org) which is accessible from Python to access the Web Cam and take a picture. Once a picture has been taken, this app will send it to a Web Api built in Python, using a framework called [Flask](http://flask.pocoo.org) and running in the cloud. This is a special type of web site address that doesn't return a web page, but instead allows you to send and receive data.
 
 The Web Api will take the picture, and analyze it using the [Azure Face Api](https://azure.microsoft.com/services/cognitive-services/face/?WT.mc_id=pythonworkshop-github-jabenn) from [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/?WT.mc_id=pythonworkshop-github-jabenn). This is an AI service that can recognize faces in images, as well as estimating the age of the face, if the person is smiling amongst other things. The Web Api will use this service to detect the age and emotion of all the faces and if they are smiling. This will then be saved into a database called [CosmosDB](https://azure.microsoft.com/services/cosmos-db/?WT.mc_id=pythonworkshop-github-jabenn). This is a document database - instead of storing data in rows and columns in tables, it stored data as documents. These documents contain key/value pairs of data stored in a format called [JSON](https://www.json.org).
 
