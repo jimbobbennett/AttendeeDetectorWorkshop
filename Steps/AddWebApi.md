@@ -31,10 +31,10 @@ This complete JSON text is referred to as a document, and is always enclosed in 
   from flask import Flask, request
   ```
 
-* Import the `binascii` module
+* Import the `base64` module
   
   ```python
-  import binascii
+  import base64
   ```
 
 * At the end of the file, add the following code:
@@ -43,7 +43,7 @@ This complete JSON text is referred to as a document, and is always enclosed in 
   @app.route('/image', methods=['POST'])
   def upload_image():
     json = request.get_json()
-    b = binascii.a2b_base64(json['image'])
+    b = base64.b64decode(json['image'])
 
     return 'OK'
   ```
@@ -60,10 +60,10 @@ Lets look in more detail at the actual code.
 
 ```python
 from flask import Flask, request
-import binascii
+import base64
 ```
 
-This tells the Python compiler that we want to use code in the `request` module. This module was installed as part of the `flask` package. It also tells the python compiler that we want to use `binascii` from the Python standard libraries - these come with Python so there is no need to install another package to use them.
+This tells the Python compiler that we want to use code in the `request` module. This module was installed as part of the `flask` package. It also tells the python compiler that we want to use `base64` from the Python standard libraries - these come with Python so there is no need to install another package to use them.
 
 ```python
 @app.route('/image', methods=['POST'])
@@ -79,7 +79,7 @@ json = request.get_json()
 The `request` object comes from Flask and provides details about the request that was sent to the Web Api. This request will contain any data that was sent, along with other information. The `get_json` method extracts the JSON from the request.
 
 ```python
-b = binascii.a2b_base64(json['image'])
+b = base64.b64decode(json['image'])
 ```
 
 The JSON data has a key called `image` that will contain the image as Base64 encoded text, so this code extracts the value for that key and converts it back to binary data.

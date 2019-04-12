@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 from azure.cognitiveservices.vision.face import FaceClient
 from msrest.authentication import CognitiveServicesCredentials
 import io
-import binascii
+import base64
 import azure.cosmos.cosmos_client as cosmos_client
 import uuid
 
@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 cosmos_url = '<Your Cosmos DB URL>'
 cosmos_primary_key = '<Your Cosmos DB Key>'
-cosmos_collection_link = 'dbs/technights/colls/faces'
+cosmos_collection_link = 'dbs/workshop/colls/faces'
 
 client = cosmos_client.CosmosClient(url_connection=cosmos_url, 
                                     auth={'masterKey': cosmos_primary_key})
@@ -40,7 +40,7 @@ def best_emotion(emotion):
 @app.route('/image', methods=['POST'])
 def upload_image():
     json = request.get_json()
-    b = binascii.a2b_base64(json['image'])
+    b = base64.b64decode(json['image'])
 
     image = io.BytesIO(b)
     faces = face_client.face.detect_with_stream(image,

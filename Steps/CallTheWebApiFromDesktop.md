@@ -32,22 +32,22 @@ Web Apis can be called from Python, passing data to and receiving data from the 
   
   ```python
   import requests
-  import binascii
+  import base64
   ```
 
 * Add the following code just after the imports:
   
   ```python
-  functionUrl = 'https://<Your Web App>.azurewebsites.net/image'
+  imageUrl = 'https://<Your Web App>.azurewebsites.net/image'
 
   def upload(frame):
-    img = cv2.imencode('.jpg', frame)[1]
     data = {}
-    data['image'] = binascii.b2a_base64(img).decode()
-    requests.post(url=functionUrl, json=data)
+    img = cv2.imencode('.jpg', frame)[1]
+    data['image'] = base64.b64encode(img).decode()
+    requests.post(url=imageUrl, json=data)
   ```
 
-* Update the `functionUrl` to be the URL of your Web App. Keep the `/image` part on the end.
+* Update the `imageUrl` to be the URL of your Web App. Keep the `/image` part on the end.
 
 * Add a call to this function before the `break`:
   
@@ -93,6 +93,67 @@ The picture will be uploaded to the Web Api, faces detected and the results inse
   ![The Cosmos DB explorer showing the document, and the document in a pane with an age of 44, no smile and neutral emotion](../Images/CosmosDocument.png)
 
 * Try with different people, more than one person in a picture and faces showing different emotions and check the results.
+
+## What does this code do
+
+The overall flow of this code is:
+
+1. When the picture is taken, send it to the `upload` functions
+1. Create a dictionary to store the data being sent as JSON
+1. Convert the image to binary data, then Base64 encode it
+1. Add the Base64 encoded data to the dictionary, then convert that to JSON
+1. POST the JSON to the Web Api
+
+Lets look in more detail at the actual code.
+
+```python
+import requests
+import base64
+```
+
+This tells the Python compiler that we want to use code in the `requests` package. It also tells the python compiler that we want to use `base64` from the Python standard libraries - these come with Python so there is no need to install another package to use them.
+
+```python
+imageUrl = 'https://<Your Web App>.azurewebsites.net/image'
+```
+
+This defines a variable with the URL of the Web Api.
+
+```python
+def upload(frame):
+```
+
+This code declares the `upload` function to upload the image.
+
+```python
+data = {}
+```
+
+This code defines a new, empty dictionary. A dictionary contains key/value pairs, so is ideal to convert to JSON to send to a Web Api.
+
+```python
+img = cv2.imencode('.jpg', frame)[1]
+```
+
+The image needs to be encoded as Base64 to be sent as JSON. This code takes the frame and extracts the image from it as a JPEG. This format is specific by the `'.jpg'` file extension.
+
+```python
+data['image'] = base64.b64encode(img).decode()
+```
+
+Once the image is extracted, it is converted to a Base64 encoded string and set as the value of the `image` key in the dictionary.
+
+```python
+requests.post(url=imageUrl, json=data)
+```
+
+This code sends the json to the Web Api using a POST request.
+
+```python
+upload(frame)
+```
+
+The `upload` function is called once the frame is captured and the **space** key is pressed.
 
 ## Next step
 

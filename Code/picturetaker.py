@@ -1,14 +1,14 @@
 import cv2
 import requests
-import binascii
+import base64
 
-functionUrl = '<Your App Url>'
+imageUrl = '<Your App Url>/image'
 
 def upload(frame):
-    img = cv2.imencode('.jpg', frame)[1]
     data = {}
-    data['image'] = binascii.b2a_base64(img).decode()
-    requests.post(url=functionUrl, json=data)
+    img = cv2.imencode('.jpg', frame)[1]
+    data['image'] = base64.b64encode(img).decode()
+    requests.post(url=imageUrl, json=data)
 
 cam = cv2.VideoCapture(0)
 cv2.namedWindow('Press space to take a photo')
