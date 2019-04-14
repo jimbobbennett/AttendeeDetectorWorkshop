@@ -108,6 +108,8 @@ The Face Api is available as a Python package.
 
   Replace the value of `face_api_key` with one of your keys. It doesn't matter which one.
 
+  > This key is being added to code simply for convenience when building your first app. In a real-world app, you would define keys like this in application settings and extract them using environment variables. You can read more on this in the [App Service documentation](https://docs.microsoft.com/azure/app-service/containers/how-to-configure-python#access-environment-variables?WT.mc_id=pythonworkshop-github-jabenn).
+
 * Add the following code below this:
 
   ```python

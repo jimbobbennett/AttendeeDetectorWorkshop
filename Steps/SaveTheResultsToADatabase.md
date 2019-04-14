@@ -135,6 +135,8 @@ There is a Cosmos DB client available as a Python package.
   * Extract the `AccountKey` value. This is from **After** `AccountKey=` up to the end of the connection string and will end in a double equals - `==`.
 
   * Use this value for the `cosmos_primary_key` variable.
+  
+  > This key is being added to code simply for convenience when building your first app. In a real-world app, you would define keys like this in application settings and extract them using environment variables. You can read more on this in the [App Service documentation](https://docs.microsoft.com/azure/app-service/containers/how-to-configure-python#access-environment-variables?WT.mc_id=pythonworkshop-github-jabenn).
 
 * Add the following line to the `upload_image` function inside the loop and after the `doc` is created:
   
